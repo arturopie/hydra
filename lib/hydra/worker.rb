@@ -24,11 +24,14 @@ module Hydra #:nodoc:
       load_worker_initializer
 
       @runner_event_listeners = Array(opts.fetch(:runner_listeners) { nil })
+
       @runner_event_listeners.select{|l| l.is_a? String}.each do |l|
         @runner_event_listeners.delete_at(@runner_event_listeners.index(l))
-        listener = eval(l)
-        @runner_event_listeners << listener if listener.is_a?(Hydra::RunnerListener::Abstract)
+        listener = Array.wrap eval(l)
+
+        @runner_event_listeners << listener[0] if listener[0].is_a?(Hydra::RunnerListener::Abstract)
       end
+
       @runner_log_file = opts.fetch(:runner_log_file) { nil }
 
       boot_runners(opts.fetch(:runners) { 1 })
@@ -42,7 +45,7 @@ module Hydra #:nodoc:
     def load_worker_initializer
       if File.exist?('./hydra_worker_init.rb')
         trace('Requiring hydra_worker_init.rb')
-        require 'hydra_worker_init'
+        require './hydra_worker_init'
       else
         trace('hydra_worker_init.rb not present')
       end
