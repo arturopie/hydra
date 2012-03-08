@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "TODO",
     "VERSION",
+    "arturop-hydra.gemspec",
     "caliper.yml",
     "hydra-icon-64x64.png",
     "hydra.gemspec",
