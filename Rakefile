@@ -8,8 +8,8 @@ begin
     gem.summary = %Q{Distributed testing toolkit}
     gem.description = %Q{Spread your tests over multiple machines to test your code faster.}
     gem.email = "nick@smartlogicsolutions.com"
-    gem.homepage = "http://github.com/ngauthier/hydra"
-    gem.authors = ["Nick Gauthier"]
+    gem.homepage = "https://github.com/arturopie/hydra"
+    gem.authors = ["Nick Gauthier", "Arturo Pie"]
     gem.add_development_dependency "shoulda", "= 2.10.3"
     gem.add_development_dependency "rspec", "= 2.0.0.beta.19"
     gem.add_development_dependency "cucumber", "= 0.9.2"
